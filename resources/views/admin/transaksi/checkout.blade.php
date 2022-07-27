@@ -3,7 +3,7 @@
 @section('content-admin')
 
 <div class="row">
-    <div class="col-lg">
+    <div class="col-lg-7">
         <div class="card">
             <div class="card-body">
                 <form action="">
@@ -53,7 +53,7 @@
         </div>
     </div>
 
-    <div class="col-lg">
+    <div class="col-lg-5">
         <div class="card">
             <div class="card-header">Belanjaan</div>
             <div class="card-body">
@@ -78,6 +78,7 @@
                                             </td>  
                                             <td>{{ $data['kode_barang'] }}</td>
                                             <td>{{ $data['qty'] }}</td>
+                                            <input type="hidden" name="berat" class="berat" value="{{ $data['berat']*$data['qty'] }}">
                                             <td>{{ $data['harga']*$data['qty'] }}</td>
                                         </tr>
                                     @endforeach 
@@ -130,12 +131,17 @@
            destination = $('#kota option:selected').val(); 
        })
 
+                let beratAll = 0;
+               $("#table-transaksi tbody").find('.berat').each(function(){
+                    beratAll += $(this).val()*1;
+               });
        $('#kurir').change(function(){
-                url = '/ongkir/harga'
+                url = '/ongkir/harga';
                kurir = $('#kurir option:selected').val()
             let data = {
                 destination,
                 kurir,
+                berat:beratAll,
                 _token
             }
             $.ajax({

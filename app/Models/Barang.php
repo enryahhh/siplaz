@@ -14,9 +14,9 @@ class Barang extends Model
     protected $fillable = [
         'kode_barang',
         'nama_barang',
-        'satuan',
         'foto',
         'harga',
+        'berat',
         'stok'
     ];
     public $incrementing = false;

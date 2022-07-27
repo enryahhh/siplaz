@@ -28,6 +28,11 @@ class TransaksiController extends Controller
         return view('admin.transaksi.checkout',['provinsi'=>$provinsi->index()]);
     }
 
+    public function checkoutView2(){
+        $provinsi = new CekOngkirController();
+        return view('admin.transaksi.checkout2',['provinsi'=>$provinsi->index()]);
+    }
+
     public function storeCart(Request $request){
         session()->put('cart',$request->cart);
         return response()->json(['code'=>200], 200);
@@ -76,6 +81,7 @@ class TransaksiController extends Controller
             
             for($i=0;$i < count($detail);$i++){
                 $detail[$i]["id_transaksi"] = $new_kode;
+                unset($detail[$i]["berat"]);
             }
             // dd($detail);
             DetailTransaksi::upsert($detail,[

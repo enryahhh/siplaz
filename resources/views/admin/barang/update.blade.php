@@ -23,9 +23,14 @@
                         </div>
                        
                          <div class="form-group">
-                            <label>Satuan</label>
-                            <input type="text" name="satuan" value="{{$data->satuan}}" id="satuan" class="form-control" id="inlineFormInputGroup">
-                        </div>
+                                <label>Berat</label>
+                                <div class="input-group mb-2">
+                                    <input type="text" name="berat" value="{{ $data->berat/1000 }}" class="form-control" id="inlineFormInputGroup">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">Kg</div>
+                                    </div>
+                                </div>
+                            </div>
                         <div class="form-group">
                             <label>Harga</label>
                             <div class="input-group mb-2">

@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Http;
 class CekOngkirController extends Controller
 {
     public $url_ongkir = 'https://api.rajaongkir.com/starter/';
+    public function ongkirView(){
+        $provinsi = $this->index();
+        return view('admin.transaksi.ongkir-view',['provinsi'=>$provinsi]);
+    }
     public function index(){
         
         $province = Http::withHeaders([
@@ -27,9 +31,9 @@ class CekOngkirController extends Controller
         $ongkir = Http::asForm()->withHeaders([
             'key' => env('ONGKIR_API_KEY')
         ])->post($this->url_ongkir.'cost',[
-            'origin' => 22,
+            'origin' => isset($request->origin) ? $request->origin : 22,
             'destination' => $request->destination,
-            'weight' => 1000,
+            'weight' => $request->berat,
             'courier'=>$request->kurir
         ]);
         return $ongkir->json();

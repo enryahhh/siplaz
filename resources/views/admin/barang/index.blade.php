@@ -14,7 +14,7 @@
                     <p>{{ session('pesan') }}</p>
                 </div>
                 @endif
-                <a href="{{route('barang.create')}}" class="btn btn-primary float-right">Tambah Barang</a>
+                <a href="{{route('barang.create')}}" class="btn btn-primary mb-2">Tambah Barang</a>
                 <div class="table-responsive">
                     <table class="table table-striped dataTable no-footer" id="table-1">
                         <thead>
@@ -22,7 +22,7 @@
                                 <th>No</th>
                                 <th>Nama Barang</th>
                                 <th>Harga</th>
-                                <th>Stok</th>
+                                <th>Deskripsi</th>
                                 <th>Gambar</th>
                                 <th>Aksi</th>
                             </tr>
@@ -31,11 +31,11 @@
                             @foreach($barang as $value)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$value->nama_barang}}</td>
-                                <td>Rp {{number_format($value->harga,0,'','.')}}/{{$value->satuan}}</td>
-                                <td>{{$value->stok}}</td>
+                                <td>Cunkybar 1kg</td>
+                                <td>Rp {{number_format(3500,0,'','.')}}</td>
+                                <td>ini coklat cunky bar</td>
                                 <td>
-                                    <img width="200px" src="{{asset('img/'.$value->foto)}}" alt="tes">
+                                    <img width="200px" src="{{asset('img/cunkybar.jpg')}}" alt="tes">
                                 </td>
                                 <td>
                                     <div class="row">

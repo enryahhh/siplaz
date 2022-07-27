@@ -13,12 +13,8 @@
               <div class="card-header">
               <div class="row">
                 <div class="col-lg">
-                  <h4>Login</h4>
-                  <span>Nim : 10119294</span>
-                  <br>
-                  <span>Nama :Lingga Juliansyah</span>
-                  <br>
-                  <p>Kelas : IF7</p>
+                  <h4>Login</h4> <br>
+                  <h6>Sistem Informasi Paket Lebaran ZNZ</h6>
                 </div>
               </div>
               </div>
@@ -66,7 +62,7 @@
               </div>
             </div>
             <div class="simple-footer">
-              Copyright &copy; 10119294-Lingga Juliansyah 2021 IF-7
+              Copyright &copy; Lingjul
             </div>
           </div>
         </div>

@@ -50,6 +50,8 @@
                             </div>
                         </div>
 
+                        <input type="hidden" name="berat" id="berat">
+
                         <div class="form-group">
                             <label>Total</label>
                             <div class="input-group mb-2">
@@ -163,6 +165,7 @@
         let data = Object.create({});
         let no = 0;
         let total_bayar = 0;
+        let beratTotal = 0;
         function coba(){
             if($("table tr").length > 2){
                $("#total-bayar").show();
@@ -209,8 +212,10 @@
                         success:function(res){
                             if(res.barang != null){
                                 const brg = res.barang;
+                                
                                 $("#nama-brg").val(brg.nama_barang);
                                 $("#harga-brg").val(brg.harga);
+                                $("#berat").val(brg.berat);
                                 $("#jml-beli").removeAttr("readonly");
                                 $("#btn-beli").removeAttr("disabled");
                             }
@@ -239,7 +244,8 @@
                 // const nama_brg = $("#nama-brg").val();
                 // const harga = $("#harga-brg").val();
                 const val_inp = $(".tampil-barang :input").serializeArray();
-                const [nama_brg,harga,jumlah,total] = val_inp;
+                console.log(val_inp);
+                const [nama_brg,harga,jumlah,beratBrg,total] = val_inp;
                 $("table tbody").last().before(`
                     <tr class="kd-${kd_brg}">
                         <td>${no}</td>
@@ -255,10 +261,12 @@
                 total_bayar += total.value*1;
                 $(".cari-barang").val(null).trigger('change');
                 $(":input").val("");
+
                 list_barang.push({
                         kode_barang:kd_brg,
                         harga:harga.value,
                         qty:jumlah.value,
+                        berat: beratBrg.value
                     });
                 
                 console.log(val_inp);
