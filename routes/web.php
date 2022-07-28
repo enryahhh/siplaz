@@ -68,4 +68,8 @@ Route::get('cart',function(){
     return view('cart');
 })->name('cart');
 
+Route::get('paketku',function(){
+    return view('paketku');
+})->name('paketku');
+
 
